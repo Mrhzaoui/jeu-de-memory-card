@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.memory-card {
+  @apply w-24 h-24 cursor-pointer transition-transform duration-500 transform-gpu;
+  perspective: 1000px;
+}
+
+.memory-card-inner {
+  @apply relative w-full h-full transition-transform duration-500 transform-gpu;
+  transform-style: preserve-3d;
+}
+
+.memory-card.flipped .memory-card-inner {
+  transform: rotateY(180deg);
+}
+
+.memory-card-front,
+.memory-card-back {
+  @apply absolute w-full h-full flex items-center justify-center text-3xl rounded-xl shadow-lg;
+  backface-visibility: hidden;
+}
+
+.memory-card-front {
+  @apply bg-gradient-to-br from-blue-500 to-purple-600 text-white transform-gpu;
+  transform: rotateY(180deg);
+}
+
+.memory-card-back {
+  @apply bg-gradient-to-br from-gray-100 to-gray-300;
+}
+
